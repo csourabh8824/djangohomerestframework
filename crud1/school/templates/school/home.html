@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="topnav">
+  <a class="active" href="{% url 'register' %}">Register</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a><br><br>
+{% if students %}
+  {% for data in students %}
+    <a href="">{{data.name}}</a>
+    <a href="{% url 'update' data.id%}">{{data.email}}</a>
+    <a href="{% url 'delete' data.id%}">{{data.password}}</a><br>
+  {% endfor %}
+{% else %}
+    <h1>No data</h1>
+{% endif %}
+</div> 
+</body>
+</html>
